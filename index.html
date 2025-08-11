@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>해시태그 복사</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      font-family: 'Noto Sans KR', sans-serif;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #1e2b4f;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .copy-button {
+      font-size: 20px;
+      padding: 18px 36px;
+      background-color: #1428A0;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 6px 14px rgba(20, 40, 160, 0.25);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .copy-button:hover {
+      background-color: #0f1e70;
+      transform: scale(1.03);
+    }
+
+    .copied-message {
+      margin-top: 20px;
+      color: #2d7d46;
+      font-size: 16px;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 7vw;
+      }
+      p {
+        font-size: 5vw;
+      }
+      .copy-button {
+        font-size: 5.5vw;
+        padding: 18px 32px;
+      }
+      .copied-message {
+        font-size: 4.5vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>해시태그 복사</h2>
+    <p>버튼을 누르면 전체 해시태그가<br>복사됩니다</p>
+    <button class="copy-button" onclick="copyText()">해시태그 복사하기</button>
+    <div id="copied" class="copied-message">✔ 복사되었습니다!</div>
+  </div>
+
+  <script>
+    function copyText() {
+      const hashtags = `#AI가전트로이카 #비스포크AI하이브리드 #비스포크AI패밀리허브 #비스포크AI냉장고 #비스포크AI하이브리드키친핏Max #비스포크AI김치플러스 #비스포크AI정수기 #비스포크AI식기세척기 #비스포크AI인덕션 #비스포크AI후드Air #비스포크AI콤보 #비스포크AI원바디 #비스포크AI건조기 #비스포크AI에어드레서 #비스포크AI무풍콤보갤러리 #비스포크AI무풍갤러리 #비스포크AI무풍클래식 #BespokeAI가전 #진정한AI가전 #삼성신혼가전 #스마트싱스 #삼성전자 #삼성전자이벤트 #으뜸효율가전 #지금나도비스포크AI와삽니다_by맘스홀릭`;
+
+      navigator.clipboard.writeText(hashtags).then(() => {
+        const message = document.getElementById('copied');
+        message.style.display = 'block';
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 2000);
+      }).catch(() => {
+        alert("복사에 실패했습니다. 수동으로 복사해 주세요.");
+      });
+    }
+  </script>
+</body>
+</html>
